@@ -1,1564 +1,1281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Legacy Custom Homes | Raleigh, NC Custom Home Builder</title>
+    <meta name="description" content="Haven Pool is Houston's premier luxury pool builder. Custom infinity pools, modern water features, and outdoor living spaces.">
+    <meta name="keywords" content="Houston Pool Builder, Custom Pools Houston, Luxury Pools Houston TX, Pool Construction Houston">
+    <meta name="author" content="Haven Pool">
+    <meta name="theme-color" content="#0B1120">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Haven Pool | Ultra-Luxury Custom Pool Builders Houston">
+    <meta property="og:description" content="Transform your backyard into a private resort with custom pool design and construction.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7">
+    <meta property="og:type" content="website">
+    
+    <title>Haven Pool | Ultra-Luxury Custom Pool Builders Houston</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --charcoal: #2c2c2c;
-            --gold: #bfa06b;
-            --white: #ffffff;
-            --beige: #f5f2ed;
-            --light-gray: #f8f8f8;
-            --transition: all 0.3s ease;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        haven: {
+                            navy: '#0B1120',
+                            charcoal: '#1E293B',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            aqua: '#2DD4BF',
+                            light: '#F8FAFC',
+                            gray: '#64748B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ===== BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         body {
-            font-family: 'Lato', sans-serif;
-            color: var(--charcoal);
-            background-color: var(--white);
+            background-color: #F8FAFC;
+            color: #0B1120;
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 1rem;
+        /* ===== GLASSMORPHISM ===== */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 20px 60px -15px rgba(0,0,0,0.1);
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        .glass-nav {
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        section {
-            padding: 5rem 0;
+        /* ===== TEXT GRADIENTS ===== */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            z-index: 1000;
-            transition: var(--transition);
+        .text-gradient-aqua {
+            background: linear-gradient(135deg, #2DD4BF 0%, #14B8A6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        header.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo span {
-            color: var(--gold);
-        }
-
-        .logo-icon {
-            margin-right: 8px;
-            font-size: 1.5rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            position: relative;
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--charcoal);
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        nav ul li a:hover {
-            color: var(--gold);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--gold);
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* Dropdown Menu */
-        .dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--white);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            min-width: 220px;
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
             opacity: 0;
-            visibility: hidden;
-            transform: translateY(15px);
-            transition: var(--transition);
-            border-radius: 0 0 5px 5px;
-            overflow: hidden;
-            z-index: 100;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        nav ul li:hover .dropdown {
+        
+        .reveal.active {
             opacity: 1;
-            visibility: visible;
             transform: translateY(0);
         }
 
-        .dropdown li {
-            margin: 0;
-            width: 100%;
-        }
-
-        .dropdown li a {
-            display: block;
-            padding: 0.9rem 1.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .dropdown li a:hover {
-            background-color: var(--beige);
-            padding-left: 1.8rem;
-        }
-
-        .dropdown li:last-child a {
-            border-bottom: none;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--charcoal);
-            transition: var(--transition);
-        }
-
-        .mobile-menu-btn:hover {
-            color: var(--gold);
-        }
-
-        /* Mobile Navigation */
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 300px;
-            height: 100vh;
-            background-color: var(--white);
-            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
-            z-index: 1001;
-            transition: var(--transition);
-            padding: 2rem;
-            overflow-y: auto;
-        }
-
-        .mobile-nav.active {
-            right: 0;
-        }
-
-        .mobile-nav-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--charcoal);
-        }
-
-        .mobile-nav ul {
-            list-style: none;
-            margin-top: 3rem;
-        }
-
-        .mobile-nav ul li {
-            margin-bottom: 1rem;
-        }
-
-        .mobile-nav ul li a {
-            text-decoration: none;
-            color: var(--charcoal);
-            font-size: 1.2rem;
-            display: block;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .mobile-nav ul li a:hover {
-            color: var(--gold);
-        }
-
-        .mobile-dropdown-btn {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            color: var(--charcoal);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .mobile-dropdown-btn i {
-            transition: var(--transition);
-        }
-
-        .mobile-dropdown-btn.active i {
-            transform: rotate(180deg);
-        }
-
-        .mobile-dropdown {
-            max-height: 0;
-            overflow: hidden;
-            transition: var(--transition);
-            padding-left: 1.5rem;
-        }
-
-        .mobile-dropdown.active {
-            max-height: 300px;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+        .reveal-left {
             opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
+            transform: translateX(-40px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .overlay.active {
+        
+        .reveal-left.active {
             opacity: 1;
-            visibility: visible;
+            transform: translateX(0);
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            min-height: 700px;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            padding-top: 80px;
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
+        /* ===== NAVBAR ===== */
+        .nav-scrolled {
+            padding-top: 0.75rem !important;
+            padding-bottom: 0.75rem !important;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--gold);
-            color: var(--white);
-            padding: 0.9rem 2rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 2px solid var(--gold);
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--gold);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--gold);
-            color: var(--white);
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--light-gray);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--charcoal);
+        /* ===== IMAGE EFFECTS ===== */
+        .img-zoom-container {
+            overflow: hidden;
             position: relative;
-            display: inline-block;
-            padding-bottom: 1rem;
+        }
+        
+        .img-zoom {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .img-zoom-container:hover .img-zoom {
+            transform: scale(1.08);
         }
 
-        .section-header h2::after {
+        .img-overlay {
+            background: linear-gradient(to top, rgba(11, 17, 32, 0.9) 0%, rgba(11, 17, 32, 0.4) 50%, transparent 100%);
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-luxury {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-luxury::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--gold);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
+            top: 0;
+            left: -100%;
             width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn-luxury:hover::before {
+            left: 100%;
         }
 
-        .about-img img:hover {
-            transform: scale(1.03);
+        /* ===== SERVICE CARDS ===== */
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        /* Team Section */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-member {
-            text-align: center;
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .team-member:hover {
+        
+        .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
-
-        .team-member-img {
-            height: 300px;
-            overflow: hidden;
-        }
-
-        .team-member-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .team-member:hover .team-member-img img {
+        
+        .service-card:hover .service-image {
             transform: scale(1.05);
         }
 
-        .team-member-info {
-            padding: 1.5rem;
+        .service-image {
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .team-member-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        /* ===== CUSTOM SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
-
-        .team-member-info p {
-            color: var(--gold);
-            font-weight: 500;
-        }
-
-        /* Legacy Difference Section */
-        .legacy-difference {
-            background-color: var(--beige);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-
-        .feature h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background-color: var(--light-gray);
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-
-        .service:hover {
-            background-color: var(--gold);
-            color: var(--white);
-        }
-
-        .service:hover h3,
-        .service:hover p,
-        .service:hover .service-icon {
-            color: var(--white);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-        }
-
-        .service h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Gallery Section */
-        .gallery {
-            background-color: var(--light-gray);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            height: 300px;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-item-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
-            display: flex;
-            align-items: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover .gallery-item-overlay {
-            opacity: 1;
-        }
-
-        .gallery-item-overlay h3 {
-            color: var(--white);
-            font-size: 1.2rem;
-        }
-
-        /* Testimonials Section */
-        .testimonials-slider {
-            max-width: 800px;
-            margin: 3rem auto 0;
-            position: relative;
-        }
-
-        .testimonial {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            margin: 0 1rem;
-            display: none;
-        }
-
-        .testimonial.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .testimonial-content {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .testimonial-content::before {
-            content: '"';
-            font-size: 4rem;
-            color: var(--gold);
-            position: absolute;
-            left: -0.5rem;
-            top: -1.5rem;
-            font-family: 'Playfair Display', serif;
-            opacity: 0.3;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .testimonial-author-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 1rem;
-        }
-
-        .testimonial-author-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .testimonial-author-info h4 {
-            margin-bottom: 0.3rem;
-        }
-
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
-
-        .slider-btn {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--gold);
-            cursor: pointer;
-            margin: 0 0.5rem;
-            transition: var(--transition);
-        }
-
-        .slider-btn:hover {
-            color: var(--charcoal);
-        }
-
-        .slider-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin: 0 0.3rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .slider-dot.active {
-            background-color: var(--gold);
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--beige);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info h3 {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-detail {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-detail i {
-            font-size: 1.2rem;
-            color: var(--gold);
-            margin-right: 1rem;
-            width: 30px;
-        }
-
-        .social-links {
-            display: flex;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--gold);
-            color: var(--white);
-            border-radius: 50%;
-            margin-right: 1rem;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--charcoal);
-            transform: translateY(-3px);
-        }
-
-        .contact-form .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: 'Lato', sans-serif;
-            transition: var(--transition);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--charcoal);
-            color: var(--white);
-            padding: 3rem 0 1.5rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .footer-logo span {
-            color: var(--gold);
-        }
-
-        .footer-links h4,
-        .footer-contact h4 {
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-links h4::after,
-        .footer-contact h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--gold);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--gold);
-            padding-left: 5px;
-        }
-
-        .footer-contact p {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-contact i {
-            color: var(--gold);
-            margin-right: 0.8rem;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        /* Page Content */
-        .page {
-            display: none;
-            padding-top: 120px;
-            min-height: 80vh;
-        }
-
-        .page.active {
-            display: block;
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #D4AF37 0%, #B89628 100%);
+            border-radius: 5px;
         }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #F3E5AB 0%, #D4AF37 100%);
         }
 
+        /* ===== RESPONSIVE UTILITIES ===== */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            section {
-                padding: 3rem 0;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
+            .hero-text {
+                font-size: 2.5rem !important;
             }
         }
 
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
+        @media (max-width: 480px) {
+            .hero-text {
+                font-size: 2rem !important;
             }
-            
-            .btn {
-                padding: 0.8rem 1.5rem;
+        }
+
+        /* ===== LOADING STATES ===== */
+        .image-loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
-            
-            .mobile-nav {
-                width: 100%;
-            }
+        }
+
+        /* ===== FOCUS STATES ===== */
+        input:focus, textarea:focus, button:focus {
+            outline: 2px solid #D4AF37;
+            outline-offset: 2px;
+        }
+
+        /* ===== SELECTION ===== */
+        ::selection {
+            background: #D4AF37;
+            color: #0B1120;
         }
     </style>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Haven Pool",
+      "image": "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7",
+      "telephone": "+1-713-555-0199",
+      "email": "design@havenpool.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Luxury Lane",
+        "addressLocality": "Houston",
+        "addressRegion": "TX",
+        "postalCode": "77002",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 29.7604,
+        "longitude": -95.3698
+      },
+      "url": "https://www.havenpool.com",
+      "priceRange": "$$$",
+      "openingHours": "Mo-Fr 08:00-18:00"
+    }
+    </script>
 </head>
-<body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container nav-container">
-            <a href="#home" class="logo" data-page="home">
-                <i class="fas fa-home logo-icon"></i>
-                Legacy <span>Custom Homes</span>
-            </a>
-            
-            <!-- Desktop Navigation -->
-            <nav>
-                <ul>
-                    <li><a href="#home" data-page="home">Home</a></li>
-                    <li>
-                        <a href="#about" data-page="about">About</a>
-                        <ul class="dropdown">
-                            <li><a href="#our-team" data-page="our-team">Our Team</a></li>
-                            <li><a href="#legacy-difference" data-page="legacy-difference">The Legacy Difference</a></li>
-                            <li><a href="#services" data-page="services">Services</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#gallery" data-page="gallery">Gallery</a></li>
-                    <li><a href="#testimonials" data-page="testimonials">Testimonials</a></li>
-                    <li><a href="#contact" data-page="contact">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="text-xl sm:text-2xl font-serif font-bold tracking-widest uppercase flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <i data-lucide="waves" class="text-haven-gold w-5 h-5 sm:w-6 sm:h-6"></i>
+                    <span class="hidden xs:inline">Haven Pool</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                    <a href="#about" class="hover:text-haven-gold transition-colors duration-300 relative group">
+                        About
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-haven-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#services" class="hover:text-haven-gold transition-colors duration-300 relative group">
+                        Services
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-haven-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#portfolio" class="hover:text-haven-gold transition-colors duration-300 relative group">
+                        Portfolio
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-haven-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#areas" class="hover:text-haven-gold transition-colors duration-300 relative group">
+                        Service Areas
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-haven-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#reviews" class="hover:text-haven-gold transition-colors duration-300 relative group">
+                        Reviews
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-haven-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+
+                <!-- Contact Info & CTA -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <div class="text-right hidden xl:block">
+                        <p class="text-xs text-gray-400 uppercase tracking-wider">Call for Consultation</p>
+                        <p class="font-bold text-haven-gold hover:text-white transition-colors cursor-pointer">713-555-0199</p>
+                    </div>
+                    <a href="#contact" class="btn-luxury bg-haven-gold hover:bg-white text-haven-navy font-bold py-3 px-6 rounded-sm transition-all duration-300 uppercase text-xs tracking-widest">
+                        Get Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors" onclick="toggleMenu()" aria-label="Toggle menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-haven-navy/98 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-8 lg:hidden">
+        <button class="absolute top-6 right-6 text-white p-2 hover:bg-white/10 rounded-lg transition-colors" onclick="toggleMenu()" aria-label="Close menu">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="#about" class="text-3xl font-serif text-white hover:text-haven-gold transition-colors" onclick="toggleMenu()">About</a>
+        <a href="#services" class="text-3xl font-serif text-white hover:text-haven-gold transition-colors" onclick="toggleMenu()">Services</a>
+        <a href="#portfolio" class="text-3xl font-serif text-white hover:text-haven-gold transition-colors" onclick="toggleMenu()">Portfolio</a>
+        <a href="#areas" class="text-3xl font-serif text-white hover:text-haven-gold transition-colors" onclick="toggleMenu()">Service Areas</a>
+        <a href="#reviews" class="text-3xl font-serif text-white hover:text-haven-gold transition-colors" onclick="toggleMenu()">Reviews</a>
+        <a href="#contact" class="text-haven-gold text-2xl font-bold hover:text-white transition-colors" onclick="toggleMenu()">Get a Quote</a>
+        <div class="mt-8 text-center">
+            <p class="text-gray-400 text-sm">Call Us</p>
+            <p class="text-haven-gold text-xl font-bold">713-555-0199</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center bg-haven-navy overflow-hidden">
+        <!-- Background Video/Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Luxury Pool Background" 
+                 class="w-full h-full object-cover opacity-60"
+                 loading="eager">
+            <div class="absolute inset-0 bg-gradient-to-b from-haven-navy/70 via-haven-navy/50 to-haven-navy/90"></div>
+        </div>
+
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-haven-aqua/10 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-haven-gold/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                
+                <!-- Hero Content -->
+                <div class="text-white space-y-6 reveal active">
+                    <div class="inline-flex items-center gap-2 border border-haven-gold/50 px-4 py-2 rounded-full text-xs uppercase tracking-[0.2em] text-haven-gold bg-haven-navy/60 backdrop-blur-sm animate-float">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                        Houston's Elite Pool Builder
+                    </div>
+                    <h1 class="hero-text text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-serif font-medium leading-tight">
+                        Luxury Custom Pools <br>
+                        <span class="italic text-gradient-gold">Designed for Life</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-300 font-light max-w-lg leading-relaxed">
+                        Transform your backyard into a private resort. We craft architectural masterpieces tailored to the Houston lifestyle.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <i data-lucide="check-circle" class="text-haven-gold w-4 h-4"></i>
+                            <span>15+ Years Experience</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <i data-lucide="check-circle" class="text-haven-gold w-4 h-4"></i>
+                            <span>Award Winning Design</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <i data-lucide="check-circle" class="text-haven-gold w-4 h-4"></i>
+                            <span>500+ Projects</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-4 pt-6">
+                        <a href="#contact" class="btn-luxury bg-haven-gold hover:bg-white text-haven-navy font-bold py-4 px-8 rounded-sm transition-all duration-300 uppercase tracking-widest text-sm">
+                            Start Your Project
+                        </a>
+                        <a href="#portfolio" class="btn-luxury border border-white/30 hover:border-haven-gold hover:text-haven-gold text-white font-bold py-4 px-8 rounded-sm transition-all duration-300 uppercase tracking-widest text-sm">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Glass Quote Form -->
+                <div class="reveal delay-200 relative z-10">
+                    <div class="glass-panel p-6 sm:p-8 rounded-sm max-w-md ml-auto border-t-2 border-haven-gold">
+                        <h3 class="text-2xl font-serif text-white mb-2">Start Your Project</h3>
+                        <p class="text-gray-400 text-sm mb-6">Request a complimentary design consultation.</p>
+                        
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you! We will contact you within 24 hours.');">
+                            <div>
+                                <input type="text" placeholder="Full Name" required
+                                    class="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-haven-gold focus:bg-white/10 transition-all duration-300">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="email" placeholder="Email" required
+                                    class="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-haven-gold focus:bg-white/10 transition-all duration-300">
+                                <input type="tel" placeholder="Phone" required
+                                    class="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-haven-gold focus:bg-white/10 transition-all duration-300">
+                            </div>
+                            <textarea rows="3" placeholder="Tell us about your vision..." required
+                                class="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-haven-gold focus:bg-white/10 transition-all duration-300"></textarea>
+                            <button type="submit" class="btn-luxury w-full bg-gradient-to-r from-haven-gold to-yellow-600 text-haven-navy font-bold py-4 rounded-sm hover:shadow-lg hover:shadow-haven-gold/30 transition-all duration-300 uppercase tracking-widest text-sm">
+                                Get Free Quote
+                            </button>
+                        </form>
+                        <p class="text-xs text-gray-500 mt-4 text-center">
+                            <i data-lucide="lock" class="w-3 h-3 inline mr-1"></i>
+                            Your information is secure and never shared
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50 hidden sm:block">
+            <i data-lucide="arrow-down" class="w-6 h-6"></i>
+            <p class="text-xs mt-2 uppercase tracking-widest">Scroll</p>
         </div>
     </header>
-    
-    <!-- Mobile Navigation Overlay -->
-    <div class="overlay"></div>
-    
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav">
-        <button class="mobile-nav-close">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul>
-            <li><a href="#home" data-page="home">Home</a></li>
-            <li>
-                <button class="mobile-dropdown-btn">
-                    About <i class="fas fa-chevron-down"></i>
-                </button>
-                <ul class="mobile-dropdown">
-                    <li><a href="#our-team" data-page="our-team">Our Team</a></li>
-                    <li><a href="#legacy-difference" data-page="legacy-difference">The Legacy Difference</a></li>
-                    <li><a href="#services" data-page="services">Services</a></li>
-                </ul>
-            </li>
-            <li><a href="#gallery" data-page="gallery">Gallery</a></li>
-            <li><a href="#testimonials" data-page="testimonials">Testimonials</a></li>
-            <li><a href="#contact" data-page="contact">Contact</a></li>
-        </ul>
-    </div>
-    
-    <!-- Main Content -->
-    <main>
-        <!-- Home Page -->
-        <section id="home-page" class="page active">
-            <div class="hero">
-                <div class="hero-content">
-                    <h1>Over 35 Years of Home Building Experience in the Triangle</h1>
-                    <p>We are Legacy Custom Homes, a locally owned Custom Home Builder serving the Raleigh, NC and neighboring markets. Our experienced team is committed to a hands-on, full service, "customer-first" approach.</p>
-                    <a href="#about" class="btn" data-page="about">Learn More</a>
+
+    <!-- Trust Badges -->
+    <section class="py-8 sm:py-10 border-b border-gray-200 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-xs text-gray-500 uppercase tracking-widest mb-6">Trusted By Houston's Finest</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex items-center gap-2 font-serif font-bold text-lg sm:text-xl text-haven-navy">
+                    <i data-lucide="award" class="text-haven-navy w-5 h-5"></i>
+                    <span>Houzz Awards</span>
+                </div>
+                <div class="flex items-center gap-2 font-serif font-bold text-lg sm:text-xl text-haven-navy">
+                    <i data-lucide="shield-check" class="text-haven-navy w-5 h-5"></i>
+                    <span>BBB A+</span>
+                </div>
+                <div class="flex items-center gap-2 font-serif font-bold text-lg sm:text-xl text-haven-navy">
+                    <i data-lucide="star" class="text-haven-navy w-5 h-5"></i>
+                    <span>5.0 Google</span>
+                </div>
+                <div class="flex items-center gap-2 font-serif font-bold text-lg sm:text-xl text-haven-navy">
+                    <i data-lucide="layers" class="text-haven-navy w-5 h-5"></i>
+                    <span>GenPool Certified</span>
                 </div>
             </div>
-            
-            <div class="container">
-                <div class="section-header">
-                    <h2>Our Commitment</h2>
-                </div>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>Our #1 goal is to ensure that the home of your dreams is the one that we build. With over 35 years of experience, we bring expertise, craftsmanship, and attention to detail to every project we undertake.</p>
-                        <p>We understand that building a custom home is one of the most important investments you'll make, and we're dedicated to making the process as smooth and enjoyable as possible.</p>
-                        <a href="#contact" class="btn btn-outline" style="margin-top: 2rem;" data-page="contact">Start Your Project</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-24 bg-haven-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div class="relative reveal">
+                    <div class="absolute -top-4 -left-4 w-20 h-20 sm:w-24 sm:h-24 bg-haven-gold/20 z-0"></div>
+                    <img src="assets/pooler.jpg" 
+                         alt="Luxury Pool Construction" 
+                         class="relative z-10 w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover shadow-2xl rounded-sm"
+                         loading="lazy">
+                    <div class="absolute -bottom-10 -right-10 w-48 h-48 sm:w-64 sm:h-64 bg-haven-navy/5 z-0 rounded-full blur-3xl"></div>
+                    
+                    <!-- Experience Badge -->
+                    <div class="absolute -bottom-6 -left-6 sm:bottom-8 sm:-left-8 bg-haven-navy text-white p-4 sm:p-6 rounded-sm shadow-xl z-20">
+                        <p class="text-3xl sm:text-4xl font-serif text-haven-gold">15+</p>
+                        <p class="text-xs sm:text-sm uppercase tracking-widest">Years of Excellence</p>
                     </div>
-                    <div class="about-img">
-                        <img src="assets/adven.jpg" alt="Legacy Custom Home">
+                </div>
+                <div class="reveal delay-100">
+                    <h4 class="text-haven-gold uppercase tracking-widest text-sm font-bold mb-4">The Haven Difference</h4>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif text-haven-navy mb-6">Architectural Excellence in Every Drop.</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        At Haven Pool, we don't just dig holes; we sculpt landscapes. Based in Houston, we specialize in high-end residential pools that blend seamlessly with modern architecture. Our team of engineers and designers work together to ensure your pool is not just a luxury amenity, but a structural masterpiece.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-haven-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                            </div>
+                            <span class="text-haven-navy font-medium">Custom 3D Design Visualization</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-haven-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                            </div>
+                            <span class="text-haven-navy font-medium">Premium Gunite & Coping Materials</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-haven-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                            </div>
+                            <span class="text-haven-navy font-medium">Automated Smart Pool Systems</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-haven-gold/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                            </div>
+                            <span class="text-haven-navy font-medium">Lifetime Structural Warranty</span>
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-luxury text-haven-navy border-b-2 border-haven-gold pb-1 font-bold uppercase tracking-widest text-sm hover:text-haven-gold transition-colors">
+                            Meet Our Team
+                        </a>
+                        <a href="#services" class="btn-luxury text-haven-navy border-b-2 border-gray-300 pb-1 font-bold uppercase tracking-widest text-sm hover:border-haven-gold hover:text-haven-gold transition-colors">
+                            Our Services
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- Services Section with Images -->
+    <section id="services" class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 reveal">
+                <h4 class="text-haven-gold uppercase tracking-widest text-sm font-bold mb-4">Our Services</h4>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif text-haven-navy mb-4">Bespoke Pool Solutions</h2>
+                <p class="text-gray-500 text-base sm:text-lg">From modern infinity edges to classic lagoons, we build it all with uncompromising quality.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Service Card 1: Custom Design -->
+                <div class="service-card glass-card rounded-sm overflow-hidden reveal">
+                    <div class="img-zoom-container h-56 sm:h-64">
+                        <img src="https://images.unsplash.com/photo-1621262846348-7d036b906823?q=80&w=800&auto=format&fit=crop" 
+                             alt="Custom Pool Design" 
+                             class="service-image w-full h-full object-cover"
+                             loading="lazy">
+                        <div class="absolute inset-0 img-overlay"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="w-12 h-12 bg-haven-gold text-haven-navy flex items-center justify-center rounded-sm">
+                                <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif text-haven-navy mb-3">Custom Pool Design</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Tailored blueprints that maximize your outdoor space and complement your home's architecture. Our design team creates 3D visualizations so you can see your dream pool before construction begins.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>3D Rendering & Visualization</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Site Analysis & Planning</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Permit Assistance</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-luxury inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-haven-navy hover:text-haven-gold transition-colors">
+                            Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 2: Infinity Pools -->
+                <div class="service-card glass-card rounded-sm overflow-hidden reveal delay-100">
+                    <div class="img-zoom-container h-56 sm:h-64">
+                        <img src="https://images.unsplash.com/photo-1600596542815-2a4d9fdd4070?q=80&w=800&auto=format&fit=crop" 
+                             alt="Infinity Pool" 
+                             class="service-image w-full h-full object-cover"
+                             loading="lazy">
+                        <div class="absolute inset-0 img-overlay"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="w-12 h-12 bg-haven-gold text-haven-navy flex items-center justify-center rounded-sm">
+                                <i data-lucide="waves" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif text-haven-navy mb-3">Infinity Pools</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Stunning vanishing edge pools that create a seamless horizon, perfect for elevated properties. Experience the ultimate in luxury with water that appears to merge with the sky.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Vanishing Edge Technology</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Catch Basin & Filtration</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Custom Edge Materials</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-luxury inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-haven-navy hover:text-haven-gold transition-colors">
+                            Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 3: Outdoor Living -->
+                <div class="service-card glass-card rounded-sm overflow-hidden reveal delay-200">
+                    <div class="img-zoom-container h-56 sm:h-64">
+                        <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?q=80&w=800&auto=format&fit=crop" 
+                             alt="Outdoor Living Space" 
+                             class="service-image w-full h-full object-cover"
+                             loading="lazy">
+                        <div class="absolute inset-0 img-overlay"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="w-12 h-12 bg-haven-gold text-haven-navy flex items-center justify-center rounded-sm">
+                                <i data-lucide="sparkles" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif text-haven-navy mb-3">Outdoor Living</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Complete outdoor kitchens, fire pits, pergolas, and spa installations for total relaxation. Create an entertainment paradise that extends your living space outdoors.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Outdoor Kitchens & BBQ</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Fire Pits & Fire Bowls</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Pergolas & Shade Structures</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-luxury inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-haven-navy hover:text-haven-gold transition-colors">
+                            Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 4: Pool Remodeling -->
+                <div class="service-card glass-card rounded-sm overflow-hidden reveal">
+                    <div class="img-zoom-container h-56 sm:h-64">
+                        <img src="https://images.unsplash.com/photo-1598902166540-25885669101d?q=80&w=800&auto=format&fit=crop" 
+                             alt="Pool Remodeling" 
+                             class="service-image w-full h-full object-cover"
+                             loading="lazy">
+                        <div class="absolute inset-0 img-overlay"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="w-12 h-12 bg-haven-gold text-haven-navy flex items-center justify-center rounded-sm">
+                                <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif text-haven-navy mb-3">Pool Remodeling</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Modernize your existing pool with new tile, plaster, coping, and updated equipment. Breathe new life into your aging pool with our comprehensive renovation services.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Tile & Plaster Replacement</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Coping & Decking Updates</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Equipment Upgrades</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-luxury inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-haven-navy hover:text-haven-gold transition-colors">
+                            Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 5: Smart Systems -->
+                <div class="service-card glass-card rounded-sm overflow-hidden reveal delay-100">
+                    <div class="img-zoom-container h-56 sm:h-64">
+                        <img src="https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=800&auto=format&fit=crop" 
+                             alt="Smart Pool Systems" 
+                             class="service-image w-full h-full object-cover"
+                             loading="lazy">
+                        <div class="absolute inset-0 img-overlay"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="w-12 h-12 bg-haven-gold text-haven-navy flex items-center justify-center rounded-sm">
+                                <i data-lucide="smartphone" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif text-haven-navy mb-3">Smart Systems</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Control lighting, heating, and pumps from your smartphone with automation integration. Enjoy convenience and energy efficiency with cutting-edge pool technology.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Mobile App Control</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Automated Cleaning</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Energy Efficient Pumps</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-luxury inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-haven-navy hover:text-haven-gold transition-colors">
+                            Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service Card 6: Water Features -->
+                <div class="service-card glass-card rounded-sm overflow-hidden reveal delay-200">
+                    <div class="img-zoom-container h-56 sm:h-64">
+                        <img src="https://images.unsplash.com/photo-1543489822-c49534f3271f?q=80&w=800&auto=format&fit=crop" 
+                             alt="Water Features" 
+                             class="service-image w-full h-full object-cover"
+                             loading="lazy">
+                        <div class="absolute inset-0 img-overlay"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <div class="w-12 h-12 bg-haven-gold text-haven-navy flex items-center justify-center rounded-sm">
+                                <i data-lucide="droplet" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-serif text-haven-navy mb-3">Water Features</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                            Sheer descents, bubblers, and fire bowls to add movement and sound to your oasis. Create a multi-sensory experience with custom water and fire elements.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Sheer Descent Waterfalls</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Fire Bowls & Flames</span>
+                            </li>
+                            <li class="flex items-center gap-2 text-xs text-gray-500">
+                                <i data-lucide="check" class="text-haven-gold w-3 h-3"></i>
+                                <span>Bubblers & Deck Jets</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="btn-luxury inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-haven-navy hover:text-haven-gold transition-colors">
+                            Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-12 sm:mt-16 reveal">
+                <a href="#contact" class="btn-luxury inline-flex items-center gap-3 bg-haven-navy hover:bg-haven-gold text-white hover:text-haven-navy font-bold py-4 px-8 rounded-sm transition-all duration-300 uppercase tracking-widest text-sm">
+                    <i data-lucide="calendar" class="w-5 h-5"></i>
+                    Schedule Free Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 sm:py-24 bg-haven-navy text-white relative overflow-hidden">
+        <!-- Abstract Background -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-haven-charcoal/30 skew-x-12 translate-x-20 hidden lg:block"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 sm:mb-16 gap-4 reveal">
+                <div>
+                    <h4 class="text-haven-gold uppercase tracking-widest text-sm font-bold mb-2">Our Portfolio</h4>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif">Recent Masterpieces</h2>
+                </div>
+                <a href="#" class="btn-luxury border border-white/20 px-6 py-3 text-sm uppercase tracking-widest hover:bg-white hover:text-haven-navy transition-all inline-flex items-center gap-2">
+                    View All Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="img-zoom-container relative h-64 sm:h-80 reveal group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600596542815-2a4d9fdd4070?q=80&w=800&auto=format&fit=crop" 
+                         class="w-full h-full object-cover img-zoom" 
+                         alt="The Woodlands Estate"
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-haven-navy/90 via-haven-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-xl font-serif opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">The Woodlands Estate</h3>
+                        <p class="text-haven-gold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">Infinity Edge & Spa</p>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="img-zoom-container relative h-64 sm:h-80 reveal delay-100 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?q=80&w=800&auto=format&fit=crop" 
+                         class="w-full h-full object-cover img-zoom" 
+                         alt="River Oaks Modern"
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-haven-navy/90 via-haven-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-xl font-serif opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">River Oaks Modern</h3>
+                        <p class="text-haven-gold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">Geometric Design</p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="img-zoom-container relative h-64 sm:h-80 reveal delay-200 group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1598902166540-25885669101d?q=80&w=800&auto=format&fit=crop" 
+                         class="w-full h-full object-cover img-zoom" 
+                         alt="Sugar Land Resort"
+                         loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-haven-navy/90 via-haven-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-xl font-serif opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Sugar Land Resort</h3>
+                        <p class="text-haven-gold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">Outdoor Kitchen & Fire</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section id="areas" class="py-16 sm:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16 reveal">
+                <h4 class="text-haven-gold uppercase tracking-widest text-sm font-bold mb-4">Service Areas</h4>
+                <h2 class="text-3xl sm:text-4xl font-serif text-haven-navy">Serving Greater Houston</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Bringing luxury pool construction to neighborhoods across Texas with the same uncompromising quality.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4 reveal">
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">Houston</span>
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">The Woodlands</span>
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">Sugar Land</span>
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">Katy</span>
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">Cypress</span>
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">Pearland</span>
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">Spring</span>
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">Richmond</span>
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">Missouri City</span>
+                <span class="px-5 sm:px-6 py-3 bg-white shadow-sm rounded-full text-haven-navy font-medium text-sm hover:bg-haven-navy hover:text-white hover:shadow-lg transition-all duration-300 cursor-default">Tomball</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-serif text-center text-haven-navy mb-4 reveal">Client Experiences</h2>
+            <p class="text-gray-500 text-center mb-12 sm:mb-16 reveal">See what Houston homeowners say about working with Haven Pool</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Review 1 -->
+                <div class="glass-card p-6 sm:p-8 rounded-sm reveal">
+                    <div class="flex text-haven-gold mb-4">
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">"Haven Pool transformed our backyard into a 5-star resort. The attention to detail and the modern design exceeded our expectations. Truly the best pool builders in Houston."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-haven-gold to-haven-goldLight rounded-full flex items-center justify-center text-haven-navy font-bold">JM</div>
+                        <div>
+                            <p class="font-bold text-haven-navy">James & Sarah M.</p>
+                            <p class="text-xs text-gray-500">River Oaks</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="glass-card p-6 sm:p-8 rounded-sm reveal delay-100">
+                    <div class="flex text-haven-gold mb-4">
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">"Professional, punctual, and pristine work. The infinity edge they built for us is a showstopper. Highly recommend for high-end construction."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-haven-gold to-haven-goldLight rounded-full flex items-center justify-center text-haven-navy font-bold">DC</div>
+                        <div>
+                            <p class="font-bold text-haven-navy">David Chen</p>
+                            <p class="text-xs text-gray-500">The Woodlands</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="glass-card p-6 sm:p-8 rounded-sm reveal delay-200">
+                    <div class="flex text-haven-gold mb-4">
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">"From the initial design to the final swim, the process was seamless. They handled all the permits and the build quality is unmatched."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-haven-gold to-haven-goldLight rounded-full flex items-center justify-center text-haven-navy font-bold">ER</div>
+                        <div>
+                            <p class="font-bold text-haven-navy">Emily R.</p>
+                            <p class="text-xs text-gray-500">Sugar Land</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section id="contact" class="py-16 sm:py-24 bg-haven-navy relative">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-haven-aqua/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-haven-gold/5 rounded-full blur-3xl"></div>
+        </div>
         
-        <!-- About Page -->
-        <section id="about-page" class="page">
-            <div class="container">
-                <div class="section-header">
-                    <h2>About Legacy Custom Homes</h2>
-                </div>
-                <div class="about-content">
-                    <div class="about-img">
-                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="About Legacy Custom Homes">
-                    </div>
-                    <div class="about-text">
-                        <p>Legacy Custom Homes has been building quality homes throughout the Triangle continuously for over 35 years. Our unique, customer focused, build process is a true partnership with the customer, dedicated to delivering quality homes that realize your unique style and exceed your expectations.</p>
-                        <p>We are honored to have earned a reputation for providing high quality homes at an exceptional value in all price points. Each Legacy Home is carefully constructed by the area's most respected craftsmen and constructed of only top quality materials.</p>
-                        <p>From $800,000 townhomes up to $4 Million luxury homes, we maintain the same attention to detail, diligent documentation, and highest service level possible. This is how Legacy has maintained an impeccable reputation over the years.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Our Team Page -->
-        <section id="our-team-page" class="page">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Meet Our Team</h2>
-                    <p>Our experienced and dedicated staff ensures the highest level of service for every client.</p>
-                </div>
-                
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="team-member-img">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Ward Russell">
-                        </div>
-                        <div class="team-member-info">
-                            <h3>Ward Russell</h3>
-                            <p>Owner</p>
-                        </div>
-                    </div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-16">
+                <div class="text-white reveal">
+                    <h4 class="text-haven-gold uppercase tracking-widest text-sm font-bold mb-4">Get In Touch</h4>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif mb-6">Ready to Build Your <br><span class="text-gradient-gold">Sanctuary?</span></h2>
+                    <p class="text-gray-400 mb-8 text-lg leading-relaxed">Contact us today to schedule a site visit and consultation. Let's discuss your vision and bring your dream pool to life.</p>
                     
-                    <div class="team-member">
-                        <div class="team-member-img">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Zachary Chapman">
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-full flex-shrink-0">
+                                <i data-lucide="phone" class="text-haven-gold w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Phone</p>
+                                <p class="text-xl font-bold hover:text-haven-gold transition-colors cursor-pointer">713-555-0199</p>
+                                <p class="text-sm text-gray-500">Mon-Fri 8am-6pm</p>
+                            </div>
                         </div>
-                        <div class="team-member-info">
-                            <h3>Zachary Chapman</h3>
-                            <p>Owner</p>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-full flex-shrink-0">
+                                <i data-lucide="mail" class="text-haven-gold w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Email</p>
+                                <p class="text-xl font-bold hover:text-haven-gold transition-colors cursor-pointer">design@havenpool.com</p>
+                                <p class="text-sm text-gray-500">Response within 24 hours</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-full flex-shrink-0">
+                                <i data-lucide="map-pin" class="text-haven-gold w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Office</p>
+                                <p class="text-xl font-bold">123 Luxury Lane</p>
+                                <p class="text-sm text-gray-500">Houston, TX 77002</p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="team-member">
-                        <div class="team-member-img">
-                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Chris Grable">
-                        </div>
-                        <div class="team-member-info">
-                            <h3>Chris Grable</h3>
-                            <p>Vice President</p>
-                        </div>
-                    </div>
-                    
-                    <div class="team-member">
-                        <div class="team-member-img">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Leigh Mosby">
-                        </div>
-                        <div class="team-member-info">
-                            <h3>Leigh Mosby</h3>
-                            <p>Selections Coordinator</p>
-                        </div>
+
+                    <!-- Social Links -->
+                    <div class="flex gap-4 mt-8">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-haven-gold hover:text-haven-navy transition-all duration-300">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-haven-gold hover:text-haven-navy transition-all duration-300">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-haven-gold hover:text-haven-navy transition-all duration-300">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-haven-gold hover:text-haven-navy transition-all duration-300">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Legacy Difference Page -->
-        <section id="legacy-difference-page" class="page">
-            <div class="legacy-difference">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>The Legacy Difference</h2>
-                        <p>At Legacy Custom Homes we have invested resources to ensure a building experience second to none.</p>
-                    </div>
-                    
-                    <div class="features-grid">
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-home"></i>
+
+                <div class="glass-card p-6 sm:p-8 lg:p-12 rounded-sm reveal delay-100">
+                    <h3 class="text-2xl sm:text-3xl font-serif text-haven-navy mb-2">Request a Consultation</h3>
+                    <p class="text-gray-500 mb-6 text-sm">Fill out the form below and we'll get back to you within 24 hours.</p>
+                    <form class="space-y-5" onsubmit="event.preventDefault(); alert('Thank you! We will contact you within 24 hours.');">
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="text-xs font-bold uppercase text-gray-500 mb-2 block">First Name *</label>
+                                <input type="text" required class="w-full border border-gray-300 rounded-sm px-4 py-3 focus:outline-none focus:border-haven-gold focus:ring-1 focus:ring-haven-gold transition-all duration-300">
                             </div>
-                            <h3>In-House Design Center</h3>
-                            <p>We keep all selections under one roof so you can see how tiles, countertops, and cabinets work together for a cohesive design.</p>
-                        </div>
-                        
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-clipboard-check"></i>
-                            </div>
-                            <h3>On-Staff Selections Coordinator</h3>
-                            <p>You're not alone during the selections process. Our coordinator provides expert advice and keeps you on schedule.</p>
-                        </div>
-                        
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3>Full Support Staff</h3>
-                            <p>Our team of experts surrounds you throughout the construction process, each specializing in different aspects of home building.</p>
-                        </div>
-                        
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-dollar-sign"></i>
-                            </div>
-                            <h3>Guaranteed Up Front Pricing</h3>
-                            <p>We offer a fixed contract price upfront with detailed specifications so there's no gray area in expectations.</p>
-                        </div>
-                        
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-file-contract"></i>
-                            </div>
-                            <h3>Detailed Paperwork</h3>
-                            <p>Comprehensive documentation ensures you always know where you stand financially with no surprise charges.</p>
-                        </div>
-                        
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h3>Financial Stability</h3>
-                            <p>Our strong financial standing means banks are willing to lend and subcontractors stand in line to work with us.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Services Page -->
-        <section id="services-page" class="page">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Our Services</h2>
-                    <p>We offer comprehensive custom home building services tailored to your unique needs and vision.</p>
-                </div>
-                
-                <div class="services-grid">
-                    <div class="service">
-                        <div class="service-icon">
-                            <i class="fas fa-drafting-compass"></i>
-                        </div>
-                        <h3>Custom Home Design</h3>
-                        <p>Collaborative design process to create a home that reflects your unique style and functional needs.</p>
-                    </div>
-                    
-                    <div class="service">
-                        <div class="service-icon">
-                            <i class="fas fa-hammer"></i>
-                        </div>
-                        <h3>New Construction</h3>
-                        <p>Complete new home construction with attention to detail and quality craftsmanship at every stage.</p>
-                    </div>
-                    
-                    <div class="service">
-                        <div class="service-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>Renovation & Remodeling</h3>
-                        <p>Transform your existing space with our expert renovation and remodeling services.</p>
-                    </div>
-                    
-                    <div class="service">
-                        <div class="service-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>Interior Selections</h3>
-                        <p>Guidance through material and finish selections to ensure a cohesive and beautiful result.</p>
-                    </div>
-                    
-                    <div class="service">
-                        <div class="service-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3>Energy-Efficient Building</h3>
-                        <p>Certified Energy Star builder incorporating sustainable and energy-efficient practices.</p>
-                    </div>
-                    
-                    <div class="service">
-                        <div class="service-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Warranty & Service</h3>
-                        <p>Comprehensive warranty coverage and dedicated service after your home is complete.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Gallery Page -->
-        <section id="gallery-page" class="page">
-            <div class="gallery">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>Our Gallery</h2>
-                        <p>Explore our portfolio of custom homes built throughout the Triangle area.</p>
-                    </div>
-                    
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Modern Kitchen">
-                            <div class="gallery-item-overlay">
-                                <h3>Modern Kitchen Design</h3>
+                            <div>
+                                <label class="text-xs font-bold uppercase text-gray-500 mb-2 block">Last Name *</label>
+                                <input type="text" required class="w-full border border-gray-300 rounded-sm px-4 py-3 focus:outline-none focus:border-haven-gold focus:ring-1 focus:ring-haven-gold transition-all duration-300">
                             </div>
                         </div>
-                        
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Luxury Bathroom">
-                            <div class="gallery-item-overlay">
-                                <h3>Luxury Master Bathroom</h3>
-                            </div>
+                        <div>
+                            <label class="text-xs font-bold uppercase text-gray-500 mb-2 block">Email Address *</label>
+                            <input type="email" required class="w-full border border-gray-300 rounded-sm px-4 py-3 focus:outline-none focus:border-haven-gold focus:ring-1 focus:ring-haven-gold transition-all duration-300">
                         </div>
-                        
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Elegant Living Room">
-                            <div class="gallery-item-overlay">
-                                <h3>Elegant Living Space</h3>
-                            </div>
+                        <div>
+                            <label class="text-xs font-bold uppercase text-gray-500 mb-2 block">Phone Number *</label>
+                            <input type="tel" required class="w-full border border-gray-300 rounded-sm px-4 py-3 focus:outline-none focus:border-haven-gold focus:ring-1 focus:ring-haven-gold transition-all duration-300">
                         </div>
-                        
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Exterior Home">
-                            <div class="gallery-item-overlay">
-                                <h3>Custom Home Exterior</h3>
-                            </div>
+                        <div>
+                            <label class="text-xs font-bold uppercase text-gray-500 mb-2 block">Message</label>
+                            <textarea rows="4" class="w-full border border-gray-300 rounded-sm px-4 py-3 focus:outline-none focus:border-haven-gold focus:ring-1 focus:ring-haven-gold transition-all duration-300"></textarea>
                         </div>
-                        
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Outdoor Living">
-                            <div class="gallery-item-overlay">
-                                <h3>Outdoor Living Space</h3>
-                            </div>
-                        </div>
-                        
-                        <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Custom Bedroom">
-                            <div class="gallery-item-overlay">
-                                <h3>Master Suite Retreat</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Testimonials Page -->
-        <section id="testimonials-page" class="page">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Client Testimonials</h2>
-                    <p>Hear what our clients have to say about their experience with Legacy Custom Homes.</p>
-                </div>
-                
-                <div class="testimonials-slider">
-                    <div class="testimonial active">
-                        <div class="testimonial-content">
-                            Building, buying and financing a home is one of the hardest and most important decisions I've ever made. There is no other builder I would do it with than Legacy. They are ethical, professional, creative, and hard working. They very quickly went from being contractors to friends.
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-author-img">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Johnathan K.">
-                            </div>
-                            <div class="testimonial-author-info">
-                                <h4>Johnathan K.</h4>
-                                <p>Raleigh, NC</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            We love our home! I wanted to thank you and your staff again for helping make our building process as easy and worry free as possible. We feel that partnering with Legacy Custom Homes as our builder was the best decision that we could have made.
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-author-img">
-                                <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Mark & Amy T.">
-                            </div>
-                            <div class="testimonial-author-info">
-                                <h4>Mark & Amy T.</h4>
-                                <p>Cary, NC</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            Legacy Custom Homes has exceeded our expectations in regards to the quality of the finished product and after the sales service. Your personnel, both back office and front line, were knowledgeable and always accessible.
-                        </div>
-                        <div class="testimonial-author">
-                            <div class="testimonial-author-img">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Andre B.">
-                            </div>
-                            <div class="testimonial-author-info">
-                                <h4>Andre B.</h4>
-                                <p>Durham, NC</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="slider-controls">
-                        <button class="slider-btn prev-btn">
-                            <i class="fas fa-chevron-left"></i>
+                        <button type="submit" class="btn-luxury w-full bg-haven-navy hover:bg-haven-gold text-white hover:text-haven-navy font-bold py-4 mt-2 transition-all duration-300 uppercase tracking-widest text-sm">
+                            Submit Request
                         </button>
-                        <button class="slider-btn next-btn">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="slider-dots">
-                        <span class="slider-dot active" data-slide="0"></span>
-                        <span class="slider-dot" data-slide="1"></span>
-                        <span class="slider-dot" data-slide="2"></span>
-                    </div>
+                        <p class="text-xs text-gray-500 text-center">
+                            <i data-lucide="lock" class="w-3 h-3 inline mr-1"></i>
+                            Your information is secure and never shared
+                        </p>
+                    </form>
                 </div>
             </div>
-        </section>
-        
-        <!-- Contact Page -->
-        <section id="contact-page" class="page">
-            <div class="contact">
-                <div class="container">
-                    <div class="section-header">
-                        <h2>Contact Us</h2>
-                        <p>Get in touch to start building your dream home today.</p>
-                    </div>
-                    
-                    <div class="contact-container">
-                        <div class="contact-info">
-                            <h3>Get In Touch</h3>
-                            <div class="contact-detail">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <p>3304 Six Forks Road, Suite 100<br>Raleigh, NC 27609</p>
-                            </div>
-                            <div class="contact-detail">
-                                <i class="fas fa-phone"></i>
-                                <p>Tel: 919-781-3800 | Fax: 919-781-3777</p>
-                            </div>
-                            <div class="contact-detail">
-                                <i class="fas fa-envelope"></i>
-                                <p>ward@legacycustomhomes.com</p>
-                            </div>
-                            <div class="social-links">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-form">
-                            <form id="contactForm">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Your Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" placeholder="Your Email" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" placeholder="Subject">
-                                </div>
-                                <div class="form-group">
-                                    <textarea placeholder="Your Message" required></textarea>
-                                </div>
-                                <button type="submit" class="btn">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        Legacy <span>Custom Homes</span>
+    <footer class="bg-haven-charcoal text-white py-12 sm:py-16 border-t border-white/10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8 lg:mb-12">
+                <!-- Brand -->
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <a href="#" class="text-xl sm:text-2xl font-serif font-bold tracking-widest uppercase flex items-center gap-2 mb-4">
+                        <i data-lucide="waves" class="text-haven-gold w-5 h-5"></i>
+                        Haven Pool
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Houston's premier luxury pool builder. Creating architectural masterpieces for discerning homeowners since 2011.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-haven-gold hover:text-haven-navy transition-all duration-300">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-haven-gold hover:text-haven-navy transition-all duration-300">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-haven-gold hover:text-haven-navy transition-all duration-300">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </a>
                     </div>
-                    <p>Over 35 years of home building experience in the Triangle area. Building quality custom homes with exceptional craftsmanship and customer service.</p>
                 </div>
                 
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home" data-page="home">Home</a></li>
-                        <li><a href="#about" data-page="about">About Us</a></li>
-                        <li><a href="#gallery" data-page="gallery">Gallery</a></li>
-                        <li><a href="#testimonials" data-page="testimonials">Testimonials</a></li>
-                        <li><a href="#contact" data-page="contact">Contact Us</a></li>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#about" class="hover:text-haven-gold transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-haven-gold transition-colors">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-haven-gold transition-colors">Portfolio</a></li>
+                        <li><a href="#reviews" class="hover:text-haven-gold transition-colors">Reviews</a></li>
+                        <li><a href="#contact" class="hover:text-haven-gold transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-contact">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 3304 Six Forks Road, Suite 100<br>Raleigh, NC 27609</p>
-                    <p><i class="fas fa-phone"></i> 919-781-3800</p>
-                    <p><i class="fas fa-envelope"></i> ward@legacycustomhomes.com</p>
+                <!-- Services -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-haven-gold transition-colors">Custom Design</a></li>
+                        <li><a href="#" class="hover:text-haven-gold transition-colors">Infinity Pools</a></li>
+                        <li><a href="#" class="hover:text-haven-gold transition-colors">Outdoor Living</a></li>
+                        <li><a href="#" class="hover:text-haven-gold transition-colors">Pool Remodeling</a></li>
+                        <li><a href="#" class="hover:text-haven-gold transition-colors">Smart Systems</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-haven-gold"></i>
+                            <span>713-555-0199</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-haven-gold"></i>
+                            <span>design@havenpool.com</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-haven-gold"></i>
+                            <span>Houston, TX 77002</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-haven-gold"></i>
+                            <span>Mon-Fri 8am-6pm</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2025 Legacy Custom Homes. All rights reserved.</p>
+            <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-500 text-center sm:text-left">© 2026 Haven Pool Construction. All Rights Reserved.</p>
+                <div class="flex gap-6 text-xs text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-haven-gold text-haven-navy rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-white z-50" onclick="scrollToTop()" aria-label="Back to top">
+        <i data-lucide="arrow-up" class="w-5 h-5 mx-auto"></i>
+    </button>
+
+    <!-- Scripts -->
     <script>
+        // Initialize Icons
+        lucide.createIcons();
+
         // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const mobileNavClose = document.querySelector('.mobile-nav-close');
-        const overlay = document.querySelector('.overlay');
-        const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
-        const mobileDropdown = document.querySelector('.mobile-dropdown');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileNav.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('translate-x-full');
+            document.body.style.overflow = menu.classList.contains('translate-x-full') ? 'auto' : 'hidden';
+        }
+
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                nav.classList.add('nav-scrolled', 'glass-nav');
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                nav.classList.remove('nav-scrolled', 'glass-nav');
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+            }
         });
-        
-        mobileNavClose.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-        
-        overlay.addEventListener('click', () => {
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Mobile Dropdown Toggle
-        mobileDropdownBtn.addEventListener('click', () => {
-            mobileDropdownBtn.classList.toggle('active');
-            mobileDropdown.classList.toggle('active');
-        });
-        
-        // Page Navigation
-        const navLinks = document.querySelectorAll('nav a, .mobile-nav a, .footer-links a');
-        const pages = document.querySelectorAll('.page');
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Trigger once on load
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const pageId = link.getAttribute('data-page');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Lazy Loading Images
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('image-loading');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach(img => imageObserver.observe(img));
+        });
+
+        // Form Validation
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
                 
-                // Update active page
-                pages.forEach(page => {
-                    page.classList.remove('active');
-                    if (page.id === `${pageId}-page`) {
-                        page.classList.add('active');
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('border-red-500');
+                    } else {
+                        field.classList.remove('border-red-500');
                     }
                 });
                 
-                // Close mobile menu if open
-                mobileNav.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                
-                // Scroll to top of the page
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Testimonials Slider
-        const testimonials = document.querySelectorAll('.testimonial');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const dots = document.querySelectorAll('.slider-dot');
-        let currentSlide = 0;
-        
-        function showSlide(n) {
-            // Ensure slide index is within bounds
-            if (n >= testimonials.length) {
-                currentSlide = 0;
-            } else if (n < 0) {
-                currentSlide = testimonials.length - 1;
-            } else {
-                currentSlide = n;
-            }
-            
-            // Hide all testimonials
-            testimonials.forEach(testimonial => {
-                testimonial.classList.remove('active');
-            });
-            
-            // Remove active class from all dots
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-            
-            // Show current testimonial and activate corresponding dot
-            testimonials[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        // Next slide
-        nextBtn.addEventListener('click', () => {
-            showSlide(currentSlide + 1);
-        });
-        
-        // Previous slide
-        prevBtn.addEventListener('click', () => {
-            showSlide(currentSlide - 1);
-        });
-        
-        // Dot navigation
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const slideIndex = parseInt(dot.getAttribute('data-slide'));
-                showSlide(slideIndex);
-            });
-        });
-        
-        // Auto slide every 5 seconds
-        setInterval(() => {
-            showSlide(currentSlide + 1);
-        }, 5000);
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
-        });
-        
-        // Initialize the first page as active
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set home page as active by default
-            pages.forEach(page => {
-                if (page.id === 'home-page') {
-                    page.classList.add('active');
-                } else {
-                    page.classList.remove('active');
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('Please fill in all required fields.');
                 }
             });
-            
-            // Initialize first testimonial as active
-            showSlide(0);
         });
+
+        // Performance: Reduce animations on low power mode
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.style.setProperty('--animation-duration', '0.01ms');
+        }
     </script>
 </body>
 </html>
